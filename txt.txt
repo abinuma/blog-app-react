@@ -1,0 +1,36 @@
+
+
+/* the browser creates an event object e that contains all the information about that event — like:
+        which element triggered it,
+        what value was typed,
+        what the mouse position was,
+        what keys were pressed, etc.
+        
+When you call setFormData(...),
+you’re not directly changing formData.You’re telling React:
+“Hey React, please update formData to this new value.”
+React then:
+Stores that new value internally.
+Triggers a re-render of your component.
+During that re-render, formData becomes the updated value.
+So you never “assign” to formData directly — React does that automatically after the re-render.
+*/
+
+/* axios.post() returns a promise.
+
+If the request fails (network error, CORS, server returns 4xx/5xx), the promise rejects.
+When a promise rejects inside an await, it behaves like an exception being thrown.That means:
+throw new Error("Something went wrong");Or Axios internally throws an error when the HTTP request fails.This thrown error is caught by your catch(error).It’s an object that Axios automatically creates when the HTTP request fails.
+Typical properties of Axios errors: with properties  
+error.request,
+error.response,
+error.message,
+error.config
+*/
+
+/*
+Axios is a JavaScript library (often called an HTTP client) that allows you to send HTTP requests from your frontend (browser) or backend (Node.js) to a server.axios Supports promises and async/await:Makes asynchronous requests easy to handle.why use await with axios?:await is used inside an async function to pause the execution of code until a promise resolves (finishes).
+In other words, it lets you write asynchronous code as if it were synchronous, which is much easier to read and understand.When JavaScript reaches the await line, it pauses execution of the handleSubmit function at that point.
+It waits until the axios.post() promise resolves (i.e., the server responds).
+Only after it resolves, the code continues to the next line:
+        */
