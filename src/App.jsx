@@ -20,7 +20,7 @@ import VerifyUser from "./pages/VerifyUser";
 import ForgotPassword from "./pages/ForgotPassword";
 
 function App() {
-  return (
+  return ( 
     <>
      <Routes>
       <Route element={<PrivateLayout />}>
