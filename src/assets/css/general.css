@@ -1,0 +1,59 @@
+body{
+    background-color: #e5e9ec71;
+}
+.buttons-wrapper {
+  width: 100%;
+  max-width: 50%; 
+}
+
+.btn-form {
+  padding: 8px 16px;
+  width: auto;
+}
+
+@media (max-width: 992px) {
+  .buttons-wrapper {
+    max-width: 300px;   
+  }
+}
+
+.button-block{
+    transition: background-color 0.2s;
+  background-color: #dfcce7;
+}
+.post{
+  background-color: #7da6e7;
+}
+.post:hover{
+  background-color: #5a85c7;
+}
+.btn-change{
+  background-color: #e87768;
+}
+.btn-change:hover{
+  background-color: #e09287;
+}
+
+.btn-verify{
+  background-color: #4aa160;
+  color: #ffffff;
+}
+
+.btn-verify:hover{
+  background-color: #5bb271;
+  color: #ffffff;
+}
+
+.nav{
+  background-color: #d0e0f0;
+}
+
+.delete-post{
+  background-color: #e74c3c;
+  color: #ffffff;
+    transition: background-color 0.2s;
+}
+.delete-post:hover{
+  background-color: #c0392b;
+  color: #ffffff;
+}

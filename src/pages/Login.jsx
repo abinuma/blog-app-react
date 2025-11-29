@@ -65,10 +65,11 @@ const Login = () => {
     }
   };
   return (
-    <div className="form-container">
-      <form className="inner-container" onSubmit={handleSubmit}>
+    <div className="main-container d-flex min-vh-100">
+      <div className="form-container my-auto  ">
+      <form className="inner-container " onSubmit={handleSubmit}>
         <h2 className="form-title">Login Form</h2>
-        <div className="form-group">
+        <div className="form-group py-2">
           <label>Email</label>
           <input
             className="form-control"
@@ -93,15 +94,16 @@ const Login = () => {
           {formError.password && <p className="error">{formError.password}</p>}
         </div>
 
-        <Link className="forgot-password" to="/forgot-password">Forgot Password?</Link>
+        <Link className="forgot-password " to="/forgot-password">Forgot Password?</Link>
         <div className="form-group">
           <input
-            className="button"
+            className="button post btn-general button-block"
             type="submit"
             value={`${loading ? "Loging..." : "Login"}`}
           />
         </div>
       </form>
+    </div>
     </div>
   );
 };

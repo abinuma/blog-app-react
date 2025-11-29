@@ -1,6 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+.public-navbar {
+  background-color: #ffff;
+  padding: 16px 32px;  
+  border:  solid 1px whitesmoke ;
+}
+.public-navbar a{
+  color: #363232 ;
+  margin-right: 16px;
+  text-decoration: none;
+}
+.public-navbar a:hover{
+  color: #8d6f6f;
+}
 .primary-link {
-  background-color: aliceblue;
-  padding: 16px 32px;
+  background-color: #ffff;
+  padding: 16px 32px;  
+  border:  solid 1px whitesmoke ;
+}
+.primary-link a.nav-link {
+  color: #363232 !important;
+}
+.primary-link a.nav-link:hover {
+  color: #8d6f6f !important;
+}
+nav{
+  font-family: "Inter";
 }
 
 nav a {
@@ -12,11 +37,15 @@ nav a.active {
   font-weight: bold;
 }
 
+
+
+
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
 }
+
 
 td,
 th {
@@ -33,6 +62,49 @@ tr:nth-child(even) {
   display: block;
   margin: 25px 0px;
 }
+
+.button-block:hover{
+    box-shadow: 0 0 5px rgba(205, 14, 148, 0.2);
+    background-color: rgb(244, 235, 244);
+    color: purple;
+}
+
+.button {
+  border: 1px solid #999;
+  padding: 7px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-update, .btn-delete {
+  width: 80px;
+  padding: 7px 5px; 
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 2px;
+  transition: background-color 0.2s;
+  text-align: center;
+}
+
+.btn-update {
+  background-color: #3498db;
+  color: white;
+}
+
+.btn-update:hover {
+  background-color: #2980b9;
+}
+
+.btn-delete {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.btn-delete:hover {
+  background-color: #c0392b;
+}
+
 
 .table-title {
   text-align: center;
@@ -83,6 +155,21 @@ tr:nth-child(even) {
 }
 
 .forgot-password {
-  display: block;
-  margin-bottom: 10px;
+  color: #111;
+  text-decoration: none;
+}
+.forgot-password:hover{
+color: purple;
+}
+
+.btn-general:hover{
+  transform: translateY(-2px);
+
+}
+
+.card-text {
+  display: -webkit-box;        
+  -webkit-box-orient: vertical; 
+  -webkit-line-clamp: 3;        
+  overflow: hidden;            
 }

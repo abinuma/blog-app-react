@@ -1,4 +1,4 @@
-.flexbox-container {
+/* .flexbox-container {
   display: flex;
   margin-top: 30px;
   align-items: center;
@@ -6,32 +6,109 @@
 }
 .flexbox-container.wrap {
   flex-wrap: wrap;
-}
-.post-card {
-  align-items: center;
-  width: 15%;
-  height: 10%;
-  padding: 20px;
-  border: 1px solid #ccc;
-  margin-right: 5%;
-  margin-bottom: 20px;
-  border-radius: 10px;
-  background-color: #eee;
-  transition: 0.3s ease-in;
+} */
+
+
+/* .post-card {
   cursor: pointer;
+  transition: 0.3s ease-in;
+  height: 20vh;           
+  overflow: hidden;       
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  padding: 1rem;
+} */
+
+.post-card {
+  min-height: 30vh;     
+  max-height: 40vh;      
+  padding: 1rem;
+  overflow: hidden;
+    cursor: pointer;
+    transition: 0.3s ease-in;
 }
+
+
 
 .post-card:hover {
   scale: 1.05;
+  border: 0.5px solid purple;
 }
 
-.post-card:nth-child(5) {
-  margin-right: 0px;
+.main-container{
+    padding: 1vw;
+}
+.search-wrapper {
+  position: relative;
+  padding: 2px;
 }
 
-.post-card:nth-child(10) {
-  margin-right: 0px;
+.search-input {
+  padding-left: 2.5rem;
+  background-color: rgb(234, 232, 229);
+  border: 1px solid #ccc;
 }
+
+
+.search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: gray;
+  pointer-events: none;
+}
+
+input {
+  padding-left: 2.5rem; 
+  height: 38px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+
+.icon-button {
+  color: purple;
+  border: 1px solid purple;
+  border-radius: 50%;   
+  width: 40px;        
+  height: 40px;
+  cursor: pointer;
+  font-size: 1rem;      
+  margin: 0 5px;
+  transition: transform 0.2s;
+}
+
+.icon-button:hover:not(:disabled) {
+  transform: scale(1.1);
+}
+
+.icon-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pag-number{
+  border: none;
+  color: purple;
+  background-color: none;
+  border: none;
+}
+.active-page {
+  border-bottom: 2px solid purple; 
+  font-weight: bold;              
+}
+
+.search-table{
+  margin-bottom: 10px;
+}
+
+
+.search-input:hover{
+    box-shadow: 0 0 5px rgba(205, 14, 148, 0.2);
+} 
+
 
 .card-title {
   margin-bottom: 15px !important;
@@ -59,4 +136,15 @@
 
 .post-desc {
   margin-bottom: 30px;
+}
+.detail-img {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+.detail-container,
+.post-desc {
+  word-wrap: break-word;
 }

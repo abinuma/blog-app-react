@@ -159,11 +159,11 @@ const UpdatePost = () => {
     }
   }
   return (
-    <div>
+    <div className="main-container">
       <button className="button button-block" onClick={() => navigate(-1)}>
         Go Back
       </button>
-      <div className="form-container">
+      <div className="form-container my-auto">
         <form className="inner-container" onSubmit={handleSubmit}>
           <h2 className="form-title">Update Post</h2>
           <div className="form-group">
@@ -207,6 +207,7 @@ const UpdatePost = () => {
             <label>Select a category</label>
             <select
               className="form-control"
+              name="category"
               value={formData.category}
               onChange={handleChange}
             >
@@ -219,7 +220,7 @@ const UpdatePost = () => {
           </div>
 
           <div className="form-group">
-            <input className="button" disabled={isDisable} type="submit" value={`${loading? "Updating..." : "Update"}`} />
+            <input className="button button-block btn-general" disabled={isDisable} type="submit" value={`${loading? "Updating..." : "Update"}`} />
           </div>
         </form>
       </div>

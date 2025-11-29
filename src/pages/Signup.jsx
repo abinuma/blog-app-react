@@ -78,7 +78,8 @@ const Signup = () => {
   };
 
   return (
-    <div className="form-container">
+    <div className="main-container d-flex min-vh-100">
+      <div className="form-container">
       <form className="inner-container" onSubmit={handleSubmit}>
         <h2 className="form-title">Signup Form</h2>
         <div className="form-group">
@@ -133,12 +134,13 @@ const Signup = () => {
         </div>
         <div className="form-group">
           <input
-            className="button"
+            className="button post  btn-general button-block"
             type="submit"
             value={`${loading ? "Saving..." : "Signup"}`}
           />
         </div>
       </form>
+    </div>
     </div>
   );
 };

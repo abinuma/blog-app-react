@@ -96,12 +96,12 @@ const Profile = () => {
 
   return (
     
-    <div>
+    <div className="main-container">
       <button className="button button-block" onClick={() => navigate(-1)}>
         Go Back
       </button>
 
-      <div className="form-container">
+      <div className="form-container my-auto">
         <form className="inner-container" onSubmit={handleSubmit}>
           <h2 className="form-title">Update profile</h2>
           <div className="form-group">
@@ -132,7 +132,7 @@ const Profile = () => {
 
           <div className="form-group">
             <input
-              className="button"
+              className="button button-block btn-general"
               type="submit"
               value={`${loading ? "Updating..." : "Update"}`}
             />

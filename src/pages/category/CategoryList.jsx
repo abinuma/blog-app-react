@@ -3,8 +3,9 @@ import { toast } from "react-toastify";
 import axios from "../../utils/axiosInstance";
 import moment from "moment/moment";
 import { useNavigate } from "react-router-dom";
-
 import { Modal, Button } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleLeft, faAngleRight,faSearch } from "@fortawesome/free-solid-svg-icons";
 const CategoryList = () => {
   const [loading, setLoading] = useState(false);
   const [categories, setCategories] = useState([]);
@@ -132,7 +133,7 @@ const CategoryList = () => {
     }
   }
   return (
-    <div>
+    <div className="main-container">
       <button
         className="button button-block"
         onClick={() => navigate("new-category")}
@@ -140,25 +141,28 @@ const CategoryList = () => {
         Add New Category
       </button>
       <h2 className="table-title">Category list</h2>
-      <input
-        className="saerch-input"
-        type="text"
-        name="search"
-        placeholder="Search here"
-        onChange={handleSearch}
-      />
 
+       <div className="search-wrapper search-table">
+      <FontAwesomeIcon icon={faSearch} className="search-icon" />
+      <input 
+      type="text" 
+      placeholder="Search here" 
+      className="search-input"
+      onChange={handleSearch}
+      
+      />
+    </div> 
       {loading ? (
         "Loading..."
       ) : (
-        <table>
+         <table >
           <thead>
             <tr>
-              <th>Title</th>
-              <th>Description</th>
-              <th>Created At</th>
-              <th>Updated At</th>
-              <th>Action</th>
+              <th >Title</th>
+              <th  >Description</th>
+              <th  >Created At</th>
+              <th  >Updated At</th>
+              <th >Action</th>
             </tr>
           </thead>
           <tbody>
@@ -173,18 +177,21 @@ const CategoryList = () => {
                   {moment(category.updatedAt).format("YYYY-MM-DD HH:mm:ss")}
                 </td>
                 <th>
-                  <button
-                    className="button"
+                  <div className="action-cell" >
+                    <button
+                    className="button btn-update"
                     onClick={() => navigate(`update-category/${category._id}`)}
                   >
                     Update
                   </button>
-                  <button className="button" onClick={() => {setShowModal(true)
+                  <button className="button btn-delete" onClick={() => {setShowModal(true)
                     setCategoryId(category._id);
                   }}
                     >
                       Delete
                       </button>
+                  </div>
+                  
                 </th>
               </tr>
             ))}
@@ -194,30 +201,27 @@ const CategoryList = () => {
       {pageCount.length > 1 && (
         <div className="pag-container">
           <button
-            className="pag-button"
+            className="pag-button icon-button"
             onClick={handlePrev}
             disabled={currentPage === 1}
           >
-            prev
+            <FontAwesomeIcon icon={faAngleLeft} />
           </button>
           {pageCount.map((pageNumber, index) => (
             <button
-              className="pag-button"
+              className={`pag-number ${currentPage === pageNumber ? "active-page" : ""}`}
               key={index}
               onClick={() => handlePage(pageNumber)}
-              style={{
-                backgroundColor: currentPage === pageNumber ? "#ccc" : "",
-              }}
             >
               {pageNumber}
             </button>
           ))}
           <button
-            className="pag-button"
+            className="pag-button icon-button"
             onClick={handleNext}
             disabled={currentPage === totalPage}
           >
-            next
+            <FontAwesomeIcon icon={faAngleRight} />
           </button>
         </div>
       )}

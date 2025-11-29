@@ -133,11 +133,11 @@ const NewPost = () => {
     }
   }
     return (
-      <div>
-        <button className="button button-block" onClick={() => navigate(-1)}>
+      <div className="main-container">
+        <button className="button button-block back-button" onClick={() => navigate(-1)}>
           Go Back
         </button>
-        <div className="form-container">
+        <div className="form-container my-auto">
           <form className="inner-container" onSubmit={handleSubmit}>
             <h2 className="form-title">New Post</h2>
             <div className="form-group">
@@ -198,7 +198,7 @@ const NewPost = () => {
 
             <div className="form-group">
               <input
-                className="button"
+                className="button button-block btn-general"
                 type="submit"
                 disabled={isDisable}
                 value={`${loading ? "Adding..." : "Add"}`}

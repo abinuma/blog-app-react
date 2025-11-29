@@ -74,7 +74,7 @@ const VerifyUser = () => {
         }
     }
     return (
-         <div>
+         <div className="main-container">
       <button className="button button-block" onClick={() => navigate(-1)}>
         Go Back
       </button>
@@ -83,7 +83,7 @@ const VerifyUser = () => {
         onClick={handleSendVerificationCode}
       >{`${loading ? "Sending..." : "Send verification code"}`}</button>
 
-      <div className="form-container">
+      <div className="form-container my-auto">
         <form className="inner-container" onSubmit={handleSubmit}>
           <h2 className="form-title">Verify User</h2>
           <div className="form-group">
@@ -101,7 +101,7 @@ const VerifyUser = () => {
 
           <div className="form-group">
             <input
-              className="button"
+              className="button button-block"
               type="submit"
               value={`${loading2 ? "Verifing..." : "Verify"}`}
             />

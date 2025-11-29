@@ -81,22 +81,24 @@ const DetailPost = () => {
     }
   };
   return (
-    <div>
-      <button className="button button-block" onClick={() => navigate(-1)}>
+    <div className="main-container">
+      <div className="  gx-3 ">
+        <button className="button button-block  " onClick={() => navigate(-1)}>
         Go Back
       </button>
       <button
-        className="button button-block"
+        className="button button-block "
         onClick={() => navigate(`/posts/update-post/${postId}`)}
       >
         update post
       </button>
       <button
-        className="button button-block"
+        className="button delete-post  button-block "
         onClick={() => setShowModal(true)}
       >
         Delete Post
       </button>
+      </div>
       <div className="detail-container">
         <h2 className="post-title">{post?.title}</h2>
         <h5 className="post-category">category: {post?.category?.title}</h5>

@@ -157,7 +157,7 @@ const ForgotPassword = () => {
 
         <div className="form-group">
           <input
-            className="button"
+            className="button btn-general button-block"
             type="submit"
             value={`${loading ? "Sending..." : "Send"}`}
           />

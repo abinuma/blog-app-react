@@ -65,19 +65,19 @@ const Setting = () => {
   };
 
   return (
-    <div>
+    <div className="main-container">
       <button className="button button-block" onClick={() => navigate(-1)}>
         Go Back
       </button>
       {!auth.isVerified && 
         <button
-          className="button button-block"
+          className="button btn-verify button-block"
           onClick={() => navigate("/verify-user")}
         >
           Verify user
         </button>
       }
-      <div className="form-container">
+      <div className="form-container my-auto">
         <form className="inner-container" onSubmit={handleSubmit}>
           <h2 className="form-title">Change Password</h2>
           <div className="form-group">
@@ -112,7 +112,7 @@ const Setting = () => {
 
           <div className="form-group">
             <input
-              className="button"
+              className="button btn-change button-block btn-general"
               type="submit"
               value={`${loading ? "Loading..." : "Change"}`}
             />

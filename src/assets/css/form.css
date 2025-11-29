@@ -47,18 +47,6 @@ input[type="select"],
 input[type="textarea"] {
   font-size: 14px;
 }
-
-.button {
-  border: 1px solid #999;
-  padding: 7px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.button:hover {
-  background-color: #ccc;
-}
-
 .error {
   color: red;
 }

@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import axios from "../../utils/axiosInstance";
 import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleLeft, faAngleRight,faSearch } from "@fortawesome/free-solid-svg-icons";
 const PostList = () => {
   const [loading, setLoading] = useState(false);
   const [totalPage, setTotalPage] = useState(1);
@@ -10,8 +12,12 @@ const PostList = () => {
   const [pageSize, setPageSize] = useState(10);
   const [searchValue, setSearchValue] = useState("");
   const [posts, setPosts] = useState([]);
+  const [totalPosts, settotalPosts] = useState(0);
 
   const navigate = useNavigate();
+
+      const startIndex = (currentPage - 1) * pageSize + 1;
+  const endIndex = Math.min(currentPage * pageSize, totalPosts);
 
   useEffect(() => {
     const getPosts = async () => {
@@ -25,7 +31,7 @@ const PostList = () => {
         const data = response.data.data;
         setPosts(data.posts);
         setTotalPage(Math.ceil(data.total / pageSize));
-        setTotalCategories(data.total);
+        settotalPosts(data.total);
 
         setLoading(false);
       } catch (error) {
@@ -81,7 +87,7 @@ const PostList = () => {
   
         setPosts(data.posts);
         setTotalPage(data.pages);
-        setTotalCategories(data.total);
+        settotalPosts(data.total);
       } catch (error) {
         const response = error.response;
         const data = response.data;
@@ -92,7 +98,7 @@ const PostList = () => {
       }
     };
   return (
-    <div>
+    <div className="main-container">
       <button
         className="button button-block"
         onClick={() => navigate("new-post")}
@@ -101,57 +107,74 @@ const PostList = () => {
       </button>
       <h2 className="table-title">Post list</h2>
 
-      <input
-        className="saerch-input"
-        type="text"
-        name="search"
-        placeholder="Search here"
-        onChange={handleSearch}
+       <div className="search-wrapper">
+      <FontAwesomeIcon icon={faSearch} className="search-icon" />
+      <input 
+      type="text" 
+      placeholder="Search here" 
+      className="search-input"
+      onChange={handleSearch}
+      
       />
+    </div>
 
-      <div className="flexbox-container wrap">
-        {loading ? "Loading..." : posts.map((post) => (
-          <div
-            className="post-card"
-            key={post._id}
-            onClick={() => navigate(`detail-post/${post._id}`)}
-          >
-            <h4 className="card-title">{post.title}</h4>
-            <p className="card-desc">{post.desc}</p>
-          </div>
-        ))}
+      <div className="row">
+        {loading ? (
+          <div className="col-12 text-center">Loading...</div>
+        ) : (
+          posts.map((post) => (
+            <div className="col-md-4 col-sm-6 g-4" key={post._id}>
+              <div
+                className="card h-100 shadow-sm post-card"
+                onClick={() => navigate(`/posts/detail-post/${post._id}`)}
+              >
+                <div className="card-body">
+                  <h5 className="card-title">{post.title}</h5>
+                  <p className="card-text text-muted">{post.desc}</p>
+                </div>
+              </div>
+            </div>
+          ))
+        )}
       </div>
 
       {pageCount.length > 1 && (
         <div className="pag-container">
           <button
-            className="pag-button"
+            className="pag-button icon-button"
             onClick={handlePrev}
             disabled={currentPage === 1}
           >
-            prev
+            <FontAwesomeIcon icon={faAngleLeft} />
           </button>
+
           {pageCount.map((pageNumber, index) => (
             <button
-              className="pag-button"
+              className={`pag-number ${currentPage === pageNumber ? "active-page" : ""}`}
               key={index}
               onClick={() => handlePage(pageNumber)}
-              style={{
-                backgroundColor: currentPage === pageNumber ? "#ccc" : "",
-              }}
             >
               {pageNumber}
             </button>
           ))}
           <button
-            className="pag-button"
+            className="pag-button icon-button"
             onClick={handleNext}
             disabled={currentPage === totalPage}
           >
-            next
+            <FontAwesomeIcon icon={faAngleRight} />
           </button>
         </div>
       )}
+      {totalPosts > 0 && (
+        <div className="category-count">
+          <div>
+            {`${startIndex} - ${endIndex} of ${totalPosts} posts`}
+          </div>
+
+        </div>
+      )}
+      
     </div>
   );
 };
